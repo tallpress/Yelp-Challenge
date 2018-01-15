@@ -1,6 +1,20 @@
 <h1 id="title">Add your Restaurant</h1>
 
 <%= form_with scope: :restaurant, id: 'add_restaurant_form', url: restaurants_path, local: true do |form| %>
+
+<% if @restaurant.errors.any? %>
+  <div id="error block">
+    <h2>
+      <%= pluralize(@restaurant.errors.count, "error") %> prevented this restaurant from being uploaded:
+    </h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <div>
+<% end %>
+  
 <p>
   <%= form.label :restaurant_name %><br>
   <%= form.text_field :restaurant_name %>
