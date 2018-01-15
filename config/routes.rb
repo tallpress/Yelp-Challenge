@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-
   get 'yelp/index'
+
+  get 'restaurants/new'
+
+  resources :restaurants
 
   root 'yelp#index'
 

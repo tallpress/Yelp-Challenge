@@ -1,0 +1,23 @@
+<h1 id="title">Add your Restaurant</h1>
+
+<%= form_with scope: :restaurant, local: true do |form| %>
+<p>
+  <%= form.label :restaurant_name %><br>
+  <%= form.text_field :restaurant_name %>
+</p>
+<p>
+  <%= form.label :restaurant_cuisine %><br>
+  <%= form.text_field :restaurant_cuisine %>
+</p>
+<p>
+  <%= form.label :restaurant_price %><br>
+  <%= form.text_field :restaurant_price %>
+</p>
+<p>
+  <%= form.label :restaurant_address %><br>
+  <%= form.text_area :restaurant_address %>
+</p>
+<p>
+  <%= form.submit %>
+</p>
+<% end %>
