@@ -46,8 +46,8 @@ feature 'Creating restaurant' do
 
   scenario "failing to enter correct details should display a relative error" do
     click_link 'Add restaurant'
-    create_restaurant("itsu", "sushi", 3, "Embankment")
-    expect(page).to have_content("Restaurant name is too short (minimum is 5 characters)")
+    create_restaurant("itsu", "sushi", 3, "")
+    expect(page).to have_content("error")
   end
 
   scenario "Can edit a restaurant successfully" do
