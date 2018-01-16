@@ -1,0 +1,39 @@
+<h1 id="title">Edit your Restaurant</h1>
+
+<%= form_with(model: @restaurant) do |form| %>
+
+<% if @restaurant.errors.any? %>
+  <div id="error block">
+    <h2>
+      <%= pluralize(@restaurant.errors.count, "error") %> prevented your changes from being made.
+    </h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <div>
+<% end %>
+
+<p>
+  <%= form.label :restaurant_name %><br>
+  <%= form.text_field :restaurant_name %>
+</p>
+<p>
+  <%= form.label :restaurant_cuisine %><br>
+  <%= form.text_field :restaurant_cuisine %>
+</p>
+<p>
+  <%= form.label :restaurant_price %><br>
+  <%= form.text_field :restaurant_price %>
+</p>
+<p>
+  <%= form.label :restaurant_address %><br>
+  <%= form.text_area :restaurant_address %>
+</p>
+<p>
+  <%= form.submit %>
+</p>
+<% end %>
+
+<%= link_to 'Back', restaurants_path %>
