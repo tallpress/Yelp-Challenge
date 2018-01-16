@@ -1,0 +1,35 @@
+<%= form_with(model: @restaurant, local: true) do |form| %>
+
+<% if @restaurant.errors.any? %>
+  <div id="error block">
+    <h2>
+      <%= pluralize(@restaurant.errors.count, "error") %> prevented your action from being made.
+    </h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <div>
+<% end %>
+
+<p>
+  <%= form.label :restaurant_name %><br>
+  <%= form.text_field :restaurant_name %>
+</p>
+<p>
+  <%= form.label :restaurant_cuisine %><br>
+  <%= form.text_field :restaurant_cuisine %>
+</p>
+<p>
+  <%= form.label :restaurant_price %><br>
+  <%= form.select :restaurant_price, options_for_select([1, 2, 3, 4, 5])%>
+</p>
+<p>
+  <%= form.label :restaurant_address %><br>
+  <%= form.text_area :restaurant_address %>
+</p>
+<p>
+  <%= form.submit %>
+</p>
+<% end %>
