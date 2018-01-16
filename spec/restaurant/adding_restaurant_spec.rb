@@ -3,7 +3,7 @@ require 'web_helper.rb'
 
 feature 'Creating restaurant' do
 
-  before do
+  before(:each) do
     visit('restaurants/')
   end
 
@@ -17,14 +17,15 @@ feature 'Creating restaurant' do
     expect(page).to have_content("Boyce's beans")
   end
 
-  xscenario 'can view restaurant created on restaurants/ page' do
+  scenario 'can view restaurant created on restaurants/ page' do
     click_link 'Add restaurant'
     create_restaurant("Mcdonalds", "Fast food", "1", "Waterloo Station")
-    visit('restaurants/')
+    click_link 'Back'
     expect(page).to have_content("Mcdonalds")
   end
 
   scenario 'test restaurant table is being cleaned after each test' do
+    expect(page).to have_content("Listing restaurant")
     expect(page).not_to have_content("Boyce's beans")
   end
 
