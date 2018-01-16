@@ -20,4 +20,10 @@ feature 'Creating restaurant' do
     expect(page).to have_content("Lovely Italian Mush").and have_content("Not a fan")
   end
 
+  scenario 'Average rating is displayed as a once decimal float' do
+    create_review("Very nice", 3, "Yeah, really nice")
+    create_review("not so nice", 2, "no, not very nice")
+    expect(page).to have_content("Averagte rating: 2.5")
+  end
+
 end
