@@ -17,6 +17,24 @@
   <strong>Address:</strong>
   <%= @restaurant.restaurant_address %>
 </p>
+<h2>Make a Review</h2>
+<%=form_with(model: [@restaurant, @restaurant.reviews.build], local: true) do |form| %>
+<p>
+  <%=form.label :title %><br>
+  <%=form.text_field :title %>
+</p>
+<p>
+  <%=form.label :body %><br>
+  <%=form.text_field :body %>
+</p>
+<p>
+  <%=form.label :rating %><br>
+  <%=form.text_field :rating %>
+</p>
+<p>
+  <%=form.submit %>
+</p>
+<%end%>
 
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>

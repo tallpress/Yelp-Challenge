@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'restaurants/new'
 
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews
+  end
 
   root 'yelp#index'
 
