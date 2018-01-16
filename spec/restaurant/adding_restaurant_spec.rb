@@ -7,7 +7,7 @@ feature 'Creating restaurant' do
     visit('restaurants/')
   end
 
-  scenario 'test restaurant table is being cleaned after each test suite' do
+  scenario 'test restaurant DB table is being cleaned after each test suite' do
     expect(page).not_to have_content("Boyce's beans")
   end
 
@@ -59,5 +59,18 @@ feature 'Creating restaurant' do
     expect(page).not_to have_content("Riverwood Lotus")
     expect(page).to have_content("The hungry Caterpillar")
   end
+
+  scenario "Checks that the restaurant is deleted from the list" do
+    click_link 'Add restaurant'
+    create_restaurant("Chez Charles", "Haute cuisine", 5, "Holland Park")
+    click_link 'Back'
+    expect(page).to have_content("Chez Charles")
+    click_link 'Delete'
+
+    expect(page).not_to have_content("Chez Charles")
+  end
+
+
+
 
 end

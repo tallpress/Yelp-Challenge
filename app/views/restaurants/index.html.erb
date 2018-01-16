@@ -16,6 +16,8 @@
       <td><%= restaurant.restaurant_address %></td>
       <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
       <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+      <td><%= link_to 'Delete', restaurant_path(restaurant),
+              method: :delete %></td>
     </tr>
   <% end %>
 </table>
