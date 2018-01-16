@@ -1,56 +1,71 @@
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.restaurant_name %>
-</p>
+<head>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/restaurant_index.css">
+</head>
+<body id="bg3">
+  <div class="banner">
+    <div id="stripe"></div>
+    <div id="stripe2"></div>
+    <div id="stripe3"></div>
+    <div id="stripe4"></div>
+    <div id="stripe5"></div>
+    <h1 class="boxA" id="title"><%= @restaurant.restaurant_name %></h1>
+  </div>
 
-<p>
-  <strong>Cuisine:</strong>
-  <%= @restaurant.restaurant_cuisine %>
-</p>
+  <div class="box0">
+    <div class="box00">
 
-<p>
-  <strong>Price:</strong>
-  <%= '£' * @restaurant.restaurant_price %>
-</p>
+      <p>
+        <strong>Cuisine:</strong>
+        <%= @restaurant.restaurant_cuisine %>
+      </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.restaurant_address %>
-</p>
+      <p>
+        <strong>Price:</strong>
+        <%= '£' * @restaurant.restaurant_price %>
+      </p>
 
-<h2>Reviews</h2>
-<%= "We currently have no reviews for #{@restaurant.restaurant_name}" if @restaurant.reviews.empty? %>
-<% @restaurant.reviews.each do |review| %>
-  <p>
-    <strong><%= review.title %></strong>
-  </p>
-  <p>
-    <strong>Rating: <%= ('*' * review.rating) %></strong>
-  </p>
-  <p>
-    <%= review.body %>
-  </p>
-<% end %>
-<br>
-<h3>Make a Review</h3>
-<%=form_with(model: [@restaurant, @restaurant.reviews.build], local: true) do |form| %>
-<p>
-  <%=form.label :title %><br>
-  <%=form.text_field :title %>
-</p>
-<p>
-  <%=form.label :rating %><br>
-  <%= form.select :rating, options_for_select([1, 2, 3, 4, 5])%>
-</p>
-<p>
-  <%=form.label :body %><br>
-  <%=form.text_area :body %>
-</p>
-<p>
-  <%=form.submit %>
-</p>
-<%end%>
+      <p>
+        <strong>Address:</strong>
+        <%= @restaurant.restaurant_address %>
+      </p>
+
+      <h2>Reviews</h2>
+      <%= "We currently have no reviews for #{@restaurant.restaurant_name}" if @restaurant.reviews.empty? %>
+      <% @restaurant.reviews.each do |review| %>
+        <p>
+          <strong><%= review.title %></strong>
+        </p>
+        <p>
+          <strong>Rating: <%= ('*' * review.rating) %></strong>
+        </p>
+        <p>
+          <%= review.body %>
+        </p>
+      <% end %>
+      <br>
+      <h3>Make a Review</h3>
+      <%=form_with(model: [@restaurant, @restaurant.reviews.build], local: true) do |form| %>
+      <p>
+        <%=form.label :title %><br>
+        <%=form.text_field :title %>
+      </p>
+      <p>
+        <%=form.label :rating %><br>
+        <%= form.select :rating, options_for_select([1, 2, 3, 4, 5])%>
+      </p>
+      <p>
+        <%=form.label :body %><br>
+        <%=form.text_area :body %>
+      </p>
+      <p>
+        <%=form.submit %>
+      </p>
+      <%end%>
 
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
-<%= link_to 'Back', restaurants_path %>
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+      <%= link_to 'Back', restaurants_path %>
+
+    </div>
+  </div>
+</body>

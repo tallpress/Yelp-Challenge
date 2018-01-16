@@ -1,0 +1,139 @@
+.box0 {
+  position: absolute;
+  top: 128px;
+  width: 840px;
+  padding: 16px;
+  background-color: white;
+  border: 4px solid #ffc759;
+  border-radius: 6px;
+  color: #e8883a;
+}
+
+.box00 {
+  padding-left: 24px
+}
+
+.banner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 128px;
+  background-color: orange;
+  z-index: 1;
+}
+
+.boxA {
+  position: absolute;
+  padding-left: 16px;
+  font-size: 64px;
+  font-family: sans-serif;
+  color: #bc5b00;
+  text-shadow: 2px 1px #efa056;
+  z-index: 3;
+}
+
+/*.boxA {
+  width: 720px;
+  font-size: 32px;
+  font-family: sans-serif;
+  padding: 8px;
+  background-color: #edddd0;
+  border: 3px solid #c4c2c2;
+  border-radius: 15px;
+  color: #e8883a;
+}*/
+
+.boxB {
+  width: 740px;
+  font-family: sans-serif;
+  padding: 8px;
+  background-color: #edddd0;
+  border: 3px solid #ffc759;
+  border-radius: 15px;
+  color: #e8883a;
+}
+
+.boxC {
+  width: 126px;
+  font-family: sans-serif;
+  padding: 8px;
+  background-color: #edddd0;
+  border: 3px solid #ffc759;
+  border-radius: 15px;
+  color: #e8883a;
+}
+
+#stripe {
+  position: absolute;
+  top: 78px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 18px;
+  background-color: #ffc759;
+  z-index: 2;
+}
+
+#stripe2 {
+  position: absolute;
+  top: 128px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 6px;
+  background-color: #ffc759;
+  z-index: 2;
+}
+
+#stripe3 {
+  position: absolute;
+  top: 110px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 8px;
+  background-color: #ffc759;
+  z-index: 2;
+}
+
+#stripe4 {
+  position: absolute;
+  top: 32px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 32px;
+  background-color: #ffc759;
+  z-index: 2;
+}
+
+#stripe5 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 16px;
+  background-color: #ffc759;
+  z-index: 2;
+}
+
+#bg1 {
+  background-image: url('../foods/RESTAURANT.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#bg2 {
+  background-image: url('../foods/RESTAURANT_FOOD.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#bg3 {
+  background-image: url('../foods/RESTAURANT_FOOD_2.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
