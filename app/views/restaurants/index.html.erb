@@ -14,7 +14,7 @@
       <td><%= restaurant.restaurant_name %></td>
       <td><%= restaurant.restaurant_cuisine %></td>
       <td><%= '£' * restaurant.restaurant_price %></td>
-      <td><%= restaurant.average_rating %></td>
+      <td><%= restaurant.not_yet_reviewed? ? "Not yet rated" : restaurant.average_rating %></td>
       <td><%= restaurant.restaurant_address %></td>
       <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
       <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>

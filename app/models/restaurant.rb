@@ -7,12 +7,16 @@ class Restaurant < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   def average_rating
-    @sum = 0
-    self.reviews.each { |review| @sum += review.rating }
-    (@sum.to_f/ self.reviews.count).round(1)
+    (get_ratings.sum.to_f/ self.reviews.count).round(1)
+  end
 
-    # alternate method, Charles was not impressed with the lack of readability
-    # self.reviews.map { |a| a.rating }.sum.to_f / self.reviews.count
+  def not_yet_reviewed?
+    self.reviews.empty?
+  end
+
+  private
+  def get_ratings
+    self.reviews.map { |review| review.rating }
   end
 
 end

@@ -15,7 +15,7 @@
 
 <p>
   <strong>Averagte rating:</strong>
-  <%= @restaurant.average_rating %>
+  <td><%= @restaurant.not_yet_reviewed? ? "Not yet rated" : @restaurant.average_rating %></td>
 </p>
 
 <p>
