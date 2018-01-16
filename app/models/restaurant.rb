@@ -10,6 +10,9 @@ class Restaurant < ApplicationRecord
     @sum = 0
     self.reviews.each { |review| @sum += review.rating }
     (@sum.to_f/ self.reviews.count).round(1)
+
+    # alternate method, Charles was not impressed with the lack of readability
+    # self.reviews.map { |a| a.rating }.sum.to_f / self.reviews.count
   end
 
 end
