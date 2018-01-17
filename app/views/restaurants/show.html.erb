@@ -2,17 +2,14 @@
   <link rel="stylesheet" type="text/css" href="../stylesheets/restaurant_index.css">
 </head>
 <body id="bg3">
-  <div class="banner">
-    <div id="stripe"></div>
-    <div id="stripe2"></div>
-    <div id="stripe3"></div>
-    <div id="stripe4"></div>
-    <div id="stripe5"></div>
-    <h1 class="boxA" id="title"><%= @restaurant.restaurant_name %></h1>
-  </div>
+  <%= render 'banner' %>
 
   <div class="box0">
     <div class="box00">
+
+      <p style="font-size:32px">
+        <strong><%= @restaurant.restaurant_name %></strong>
+      </p>
 
       <p>
         <strong>Cuisine:</strong>

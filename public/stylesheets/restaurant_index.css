@@ -8,6 +8,16 @@
   color: #e8883a;
 }
 
+.signedinas {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  align: right;
+  font-size: 18px;
+  color: #823400;
+  z-index: 3;
+}
+
 .box00 {
   padding-left: 24px;
 }
@@ -132,12 +142,20 @@
 
 #bg2 {
   background-image: url('../foods/RESTAURANT_FOOD.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 #bg3 {
   background-image: url('../foods/RESTAURANT_FOOD_2.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
