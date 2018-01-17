@@ -20,6 +20,11 @@
       </p>
 
       <p>
+        <strong>Average Rating:</strong>
+        <%= @restaurant.not_yet_reviewed? ? "#{@restaurant.restaurant_name} has not been rated yet" : @restaurant.average_rating %>
+      </p>
+
+      <p>
         <strong>Price:</strong>
         <%= '£' * @restaurant.restaurant_price %>
       </p>
