@@ -52,6 +52,11 @@
         <p>
           <%= review.body %>
         </p>
+        <% if current_user == review.user %>
+          <p>
+            <%= link_to 'Delete', "#{@restaurant.id}/reviews/#{review.id}", method: :delete %>
+          </p>
+        <% end %>
         <hr> <!-- subject to change --->
       <% end %>
       <br>

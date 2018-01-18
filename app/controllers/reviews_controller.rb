@@ -18,6 +18,15 @@ class ReviewsController < ApplicationController
     redirect_to restaurant_path(@restaurant)
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @rest_id = @review.restaurant.id
+    if @review.user == current_user
+      @review.destroy
+    end
+    redirect_to restaurant_path(@rest_id)
+  end
+
   private
 
   def review_params
