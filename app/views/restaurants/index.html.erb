@@ -24,7 +24,7 @@
             <td><%= restaurant.not_yet_reviewed? ? 'None' : restaurant.average_rating %></td>
             <td><%= restaurant.restaurant_address %></td>
             <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
-            <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+            <td><%= link_to 'Edit', (current_user == restaurant.user ? edit_restaurant_path(restaurant) : '/restaurants') %></td>
             <td><%= link_to 'Delete', restaurant_path(restaurant),
                     method: :delete %></td>
           </tr>
