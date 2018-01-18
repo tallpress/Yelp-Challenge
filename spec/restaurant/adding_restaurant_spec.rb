@@ -25,7 +25,7 @@ feature 'Creating restaurant' do
   end
 
   scenario 'test restaurant table is being cleaned after each test' do
-    expect(page).to have_content("Listing restaurant")
+    expect(page).to have_content("Hoot")
     expect(page).not_to have_content("Boyce's beans")
   end
 
