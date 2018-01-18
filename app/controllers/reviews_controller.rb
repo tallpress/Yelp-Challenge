@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
     @review = @restaurant.reviews.new(review_params)  #a new active record object is created
     @review.user = current_user #the review is associated to an user
     @review.save #The review is saved to the db
-
     redirect_to restaurant_path(@restaurant)
   end
 
@@ -19,5 +18,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :body, :rating)
   end
-
+  
 end

@@ -32,6 +32,7 @@
       </p>
 
       <h2>Reviews</h2>
+      <hr> <!-- subject to change --->
       <%= "We currently have no reviews for #{@restaurant.restaurant_name}" if @restaurant.reviews.empty? %>
       <% @restaurant.reviews.each do |review| %>
         <p>
@@ -41,11 +42,15 @@
           <strong>User: <%= review.user.email %></strong>
         </p>
         <p>
+          <%= review.created_at.strftime("%d/%m/%Y")%>
+        </p>
+        <p>
           <strong>Rating: <%= ('*' * review.rating) %></strong>
         </p>
         <p>
           <%= review.body %>
         </p>
+        <hr> <!-- subject to change --->
       <% end %>
       <br>
       <h3>Make a Review</h3>
