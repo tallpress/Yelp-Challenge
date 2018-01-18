@@ -4,9 +4,11 @@
 <body id="bg3">
   <%= render 'banner' %>
 
+
   <div class="box0">
     <div class="box00">
 
+      <br>
       <p style="font-size:32px">
         <strong><%= @restaurant.restaurant_name %></strong>
       </p>
@@ -54,6 +56,10 @@
       <% end %>
       <br>
       <h3>Make a Review</h3>
+      <% if flash[:alert] %>
+        <div class="altert"><%= flash[:alert] %>
+        </div>
+      <% end %>
       <%=form_with(model: [@restaurant, @restaurant.reviews.build], local: true) do |form| %>
       <p>
         <%=form.label :title %><br>

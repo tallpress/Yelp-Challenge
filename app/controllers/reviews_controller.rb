@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
       @review.user = current_user #the review is associated to an user
       @review.save #The review is saved to the db
     else
+      flash[:alert] = "It is against company policy to review your own restaurant"
       # flash[:alert] = "You can't review your own restaurant, that is crazy and against company policy"
       # requires a altert / render message to say that you can't review your own restuant
     end
