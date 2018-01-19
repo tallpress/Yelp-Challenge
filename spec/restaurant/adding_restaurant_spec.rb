@@ -3,6 +3,11 @@ require 'web_helper.rb'
 
 feature 'Creating restaurant' do
 
+  # signup_charles = signup("charles@hotmial.com", '123456')
+  # signup_lars = signup("lars@hotmial.com", '123456')
+  # signup_valentina = signup("valentina@hotmial.com", '123456')
+  # signup_tom = signup("tom@hotmial.com", '123456')
+
   before(:each) do
     visit('/')
   end
@@ -12,7 +17,7 @@ feature 'Creating restaurant' do
   end
 
   scenario 'can create a restaurant with right details' do
-    signup_charles
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Boyce's beans", "Bean based foods", 3, "Waterloo Station")
     expect(page).to have_content("Boyce's beans")

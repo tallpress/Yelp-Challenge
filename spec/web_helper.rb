@@ -22,15 +22,10 @@ def create_review(title, rating, body)
 end
 
 def signup(email, password)
-  click_link 'Login/Signup'
+  click_link('Login/Signup')
   click_link 'Sign up'
-  fill_in 'email', with: "#{email}"
-  fill_in 'password', with: "#{password}"
-  fill_in 'password_confirmation', with: "#{password}"
+  find("#email_field").set email
+  find("#password_field").set password
+  find("#password_confirmation_field").set password
   click_button 'Sign up'
 end
-
-signup_charles = signup("charles@hotmial.com", '123456')
-signup_lars = signup("lars@hotmial.com", '123456')
-signup_valentina = signup("valentina@hotmial.com", '123456')
-signup_tom = signup("tom@hotmial.com", '123456')

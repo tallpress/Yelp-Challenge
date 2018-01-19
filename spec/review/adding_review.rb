@@ -1,10 +1,10 @@
 require 'rails_helper.rb'
-require 'web_helper.rb'
+require 'capybara'
 
 feature 'Creating restaurant' do
 
   before(:each) do
-    visit('restaurants/')
+    visit('/')
     click_link 'Add restaurant'
     create_restaurant("Valentina's Bistro", "Italian mush", 5, "Look at train schedule")
   end
