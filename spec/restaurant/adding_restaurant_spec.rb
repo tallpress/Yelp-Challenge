@@ -10,6 +10,7 @@ feature 'Creating restaurant' do
 
   before(:each) do
     visit('/')
+    signup("charles@hotmial.com", '123456')
   end
 
   scenario 'test restaurant DB table is being cleaned after each test suite' do
@@ -17,14 +18,12 @@ feature 'Creating restaurant' do
   end
 
   scenario 'can create a restaurant with right details' do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Boyce's beans", "Bean based foods", 3, "Waterloo Station")
     expect(page).to have_content("Boyce's beans")
   end
 
   scenario 'can view restaurant created on restaurants/ page' do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Mcdonalds", "Fast food", 1, "Waterloo Station")
     click_link 'Back'
@@ -37,7 +36,6 @@ feature 'Creating restaurant' do
   end
 
   scenario "can't save a restaurant with wrong details" do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Arnold's Chicken Hut", "", 3, "Paddington Station")
     visit('restaurants/')
@@ -45,7 +43,6 @@ feature 'Creating restaurant' do
   end
 
   scenario "restaurants/new should have a form" do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     expect(page).to have_field("restaurant[restaurant_name]")
     expect(page).to have_field("restaurant[restaurant_cuisine]")
@@ -53,14 +50,12 @@ feature 'Creating restaurant' do
   end
 
   scenario "failing to enter correct details should display a relative error" do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("itsu", "sushi", 3, "")
     expect(page).to have_content("error")
   end
 
   scenario "Can edit a restaurant successfully" do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Riverwood Lotus", "Fresh", 3, "Lake district")
     expect(page).to have_content("Riverwood Lotus")
@@ -71,7 +66,6 @@ feature 'Creating restaurant' do
   end
 
   scenario "Checks that the restaurant is deleted from the list" do
-    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Chez Charles", "Haute cuisine", 5, "Holland Park")
     click_link 'Back'

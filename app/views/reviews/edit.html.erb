@@ -1,0 +1,47 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/restaurant_index.css">
+</head>
+<body id="bg1">
+  <%= render 'banner' %>
+
+  <div class="box0">
+    <div class="box00">
+
+      <%=form_with(@review, local: true) do |form| %>
+
+      <% if @review.errors.any? %>
+        <div id="error block">
+          <h2>
+            <%= pluralize(@review.errors.count, "error") %> prevented your action from being made.
+          </h2>
+          <ul>
+            <% @review.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <div>
+      <% end %>
+
+      <p>
+        <%=form.label :title %><br>
+        <%=form.text_field :title %>
+      </p>
+      <p>
+        <%=form.label :rating %><br>
+        <%= form.select :rating, options_for_select([1, 2, 3, 4, 5])%>
+      </p>
+      <p>
+        <%=form.label :body %><br>
+        <%=form.text_area :body %>
+      </p>
+      <p>
+        <%=form.submit %>
+      </p>
+      <%end%>
+
+      <%= link_to 'Back', restaurants_path %>
+
+    </div>
+  </div>
+
+</body>
