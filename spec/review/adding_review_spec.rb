@@ -64,9 +64,20 @@ feature 'Review restaurant' do
     signup("valentina@hotmial.com", '123456')
     click_link 'Show'
     create_review("Lovely Italian Mush", 5, "Despite the bumpy ride the Italian mush slipped down my gullet with grace")
+    expect(page).to have_content("Lovely Italian Mush")
     click_link 'Delete'
     expect(page).to_not have_content("Lovely Italian Mush")
   end
 
+  scenario "Users can not delete another person review " do
+    click_link 'Logout'
+    signup("valentina@hotmial.com", '123456')
+    click_link 'Show'
+    create_review("Lovely Italian Mush", 5, "Despite the bumpy ride the Italian mush slipped down my gullet with grace")
+    click_link 'Logout'
+    login("lars@hotmeow.com", '123456')
+    click_link 'Show'
+    expect(page).to_not have_content("Delete")
+  end
 
 end

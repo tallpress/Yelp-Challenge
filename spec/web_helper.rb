@@ -29,3 +29,10 @@ def signup(email, password)
   find("#password_confirmation_field").set password
   click_button 'Sign up'
 end
+
+def login(email, password)
+  click_link('Login/Signup')
+  find("#email").set email
+  find("#password").set password
+  click_button 'Log in'
+end
