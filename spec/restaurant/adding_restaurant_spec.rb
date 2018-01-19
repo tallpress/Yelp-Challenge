@@ -24,18 +24,20 @@ feature 'Creating restaurant' do
   end
 
   scenario 'can view restaurant created on restaurants/ page' do
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Mcdonalds", "Fast food", 1, "Waterloo Station")
     click_link 'Back'
     expect(page).to have_content("Mcdonalds")
   end
 
-  scenario 'test restaurant table is being cleaned after each test' do
+  scenario 'test restaurant DB table is being cleaned after each test' do
     expect(page).to have_content("Hoot")
     expect(page).not_to have_content("Boyce's beans")
   end
 
   scenario "can't save a restaurant with wrong details" do
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Arnold's Chicken Hut", "", 3, "Paddington Station")
     visit('restaurants/')
@@ -43,20 +45,22 @@ feature 'Creating restaurant' do
   end
 
   scenario "restaurants/new should have a form" do
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
-    expect(page)
-      .to have_field("restaurant[restaurant_name]")
-      .and have_field("restaurant[restaurant_cuisine]")
-      .and have_field("restaurant[restaurant_address]")
+    expect(page).to have_field("restaurant[restaurant_name]")
+    expect(page).to have_field("restaurant[restaurant_cuisine]")
+    expect(page).to have_field("restaurant[restaurant_address]")
   end
 
   scenario "failing to enter correct details should display a relative error" do
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("itsu", "sushi", 3, "")
     expect(page).to have_content("error")
   end
 
   scenario "Can edit a restaurant successfully" do
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Riverwood Lotus", "Fresh", 3, "Lake district")
     expect(page).to have_content("Riverwood Lotus")
@@ -67,12 +71,12 @@ feature 'Creating restaurant' do
   end
 
   scenario "Checks that the restaurant is deleted from the list" do
+    signup("charles@hotmial.com", '123456')
     click_link 'Add restaurant'
     create_restaurant("Chez Charles", "Haute cuisine", 5, "Holland Park")
     click_link 'Back'
     expect(page).to have_content("Chez Charles")
     click_link 'Delete'
-
     expect(page).not_to have_content("Chez Charles")
   end
 end
