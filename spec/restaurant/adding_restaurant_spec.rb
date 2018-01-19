@@ -4,7 +4,7 @@ require 'web_helper.rb'
 feature 'Creating restaurant' do
 
   before(:each) do
-    visit('restaurants/')
+    visit('/')
   end
 
   scenario 'test restaurant DB table is being cleaned after each test suite' do
@@ -12,6 +12,7 @@ feature 'Creating restaurant' do
   end
 
   scenario 'can create a restaurant with right details' do
+    signup_charles
     click_link 'Add restaurant'
     create_restaurant("Boyce's beans", "Bean based foods", 3, "Waterloo Station")
     expect(page).to have_content("Boyce's beans")
@@ -69,8 +70,4 @@ feature 'Creating restaurant' do
 
     expect(page).not_to have_content("Chez Charles")
   end
-
-
-
-
 end

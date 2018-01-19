@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'devise'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
