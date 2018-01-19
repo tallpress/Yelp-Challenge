@@ -55,14 +55,14 @@ feature 'Creating restaurant' do
     expect(page).to have_content("error")
   end
 
-  scenario "Can edit a restaurant successfully" do
+  scenario "User can not edit or delete a restaurant of another person" do
     click_link 'Add restaurant'
     create_restaurant("Riverwood Lotus", "Fresh", 3, "Lake district")
     expect(page).to have_content("Riverwood Lotus")
-    click_link 'Edit'
-    update_restaurant("The hungry Caterpillar", "Fresh", 3, "Lake district")
-    expect(page).not_to have_content("Riverwood Lotus")
-    expect(page).to have_content("The hungry Caterpillar")
+    click_link "Logout"
+    signup("tom@hotmial.com", '123456')
+    expect(page).not_to have_content("Edit")
+    expect(page).not_to have_content("Delete")
   end
 
   scenario "Checks that the restaurant is deleted from the list" do
@@ -73,4 +73,25 @@ feature 'Creating restaurant' do
     click_link 'Delete'
     expect(page).not_to have_content("Chez Charles")
   end
+
+  scenario "Checks that user email is shown in all pages" do
+    click_link 'Add restaurant'
+    create_restaurant("Riverwood Lotus", "Fresh", 3, "Lake district")
+    expect(page).to have_content("charles@hotmial.com")
+    click_link 'Back'
+    click_link 'Show'
+    expect(page).to have_content("charles@hotmial.com")
+    click_link 'Back'
+    click_link 'Delete'
+    expect(page).to have_content("charles@hotmial.com")
+  end
+
+  scenario "Checks that the right number of £ is shown in the price section" do
+    click_link 'Add restaurant'
+    create_restaurant("Riverwood Lotus", "Fresh", 3, "Lake district")
+    expect(page).to have_content("£££")
+
+  end
+
+
 end

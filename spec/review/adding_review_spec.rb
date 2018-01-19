@@ -3,7 +3,7 @@ require 'rails_helper.rb'
 require 'capybara'
 
 
-feature 'Creating restaurant' do
+feature 'Review restaurant' do
 
   before(:each) do
     visit('/')
@@ -58,5 +58,15 @@ feature 'Creating restaurant' do
     create_review("Lovely Italian Mush", 5, "Despite the bumpy ride the Italian mush slipped down my gullet with grace")
     expect(page).to have_content("It is against company policy to review your own restaurant")
   end
+
+  scenario "Users can delete only their own review " do
+    click_link 'Logout'
+    signup("valentina@hotmial.com", '123456')
+    click_link 'Show'
+    create_review("Lovely Italian Mush", 5, "Despite the bumpy ride the Italian mush slipped down my gullet with grace")
+    click_link 'Delete'
+    expect(page).to_not have_content("Lovely Italian Mush")
+  end
+
 
 end
