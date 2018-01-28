@@ -1,11 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+}
+
+.content {
+  width: auto;
+   height: auto;
+   margin: 0 auto;
+   padding: 10px;
+   position: relative;
+   background-color: #9BC4BC;
+}
+
 .box0 {
-  position: absolute;
-  top: 128px;
-  width: 840px;
+  position: relative;
+  top: 120px;
+  width: 75%;
+  height: 800px;
   background-color: white;
-  border: 4px solid #ffc759;
   border-radius: 6px;
   color: #e8883a;
+  margin: 0 auto;
 }
 
 .signedinas {
@@ -29,7 +45,7 @@
   right: 0px;
   width: 100%;
   height: 128px;
-  background-color: orange;
+  background-color: #4B5043;
   z-index: 1;
   background-attachment: fixed;
 }
@@ -56,13 +72,19 @@
 }*/
 
 .boxB {
-  width: 740px;
+  width: 80%;
   font-family: sans-serif;
+  font-size: 30px;
   padding: 8px;
-  background-color: #edddd0;
-  border: 3px solid #ffc759;
-  border-radius: 15px;
-  color: #e8883a;
+  margin: 15px auto;
+  background-color: #D3ffe9;
+  border: 2px solid #d3ffe9;
+  border-radius: 5px;
+  color: #000;
+}
+
+.boxB:hover {
+  background-color: white;
 }
 
 .boxC {
@@ -73,89 +95,4 @@
   border: 3px solid #ffc759;
   border-radius: 15px;
   color: #e8883a;
-}
-
-#stripe {
-  position: absolute;
-  top: 78px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 18px;
-  background-color: #ffc759;
-  z-index: 2;
-}
-
-#stripe2 {
-  position: absolute;
-  top: 128px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 6px;
-  background-color: #ffc759;
-  z-index: 2;
-}
-
-#stripe3 {
-  position: absolute;
-  top: 110px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 8px;
-  background-color: #ffc759;
-  z-index: 2;
-}
-
-#stripe4 {
-  position: absolute;
-  top: 32px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 32px;
-  background-color: #ffc759;
-  z-index: 2;
-}
-
-#stripe5 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 16px;
-  background-color: #ffc759;
-  z-index: 2;
-}
-
-#bg1 {
-  background-image: url('../foods/RESTAURANT.png');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-#bg2 {
-  background-image: url('../foods/RESTAURANT_FOOD.png');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-#bg3 {
-  background-image: url('../foods/RESTAURANT_FOOD_2.png');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }

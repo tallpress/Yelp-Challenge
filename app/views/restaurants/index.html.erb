@@ -3,32 +3,34 @@
 </head>
 <body id="bg1">
   <%= render 'banner' %>
-
-  <div class="box0">
-    <div class="box00">
-      <br>
-      <ul style="list-style-type:none;">
-        <% @restaurants.each do |restaurant| %>
-         <li class="boxB">
-           <div>Name: <%= restaurant.restaurant_name %></div>
-           <div>Cuisine: <%= restaurant.restaurant_cuisine %></div>
-           <div>Price Rating: <%= '£' * restaurant.restaurant_price %></div>
-           <div>Rating: <%= restaurant.not_yet_reviewed? ? 'None' : restaurant.average_rating %> </div>
-           <div>Address: <%= restaurant.restaurant_address %></div>
-           <div><%= link_to 'Show', restaurant_path(restaurant) %>&nbsp;&nbsp;&nbsp;
-           <% if current_user == restaurant.user %>
-           <%= link_to 'Edit', (current_user == restaurant.user ? edit_restaurant_path(restaurant) : '/restaurants') %>&nbsp;&nbsp;&nbsp;
-           <%= link_to 'Delete', restaurant_path(restaurant), method: :delete %></div>
-           <% end %>
-         </li>
-         <br>
-        <% end%>
-      </ul>
-      <br>
-      <div class="boxC">
-      <%= link_to 'Add restaurant', new_restaurant_path %>
+  <div class="content">
+    <div class="box0">
+      <div class="box00">
+        <br>
+        <ul style="list-style-type:none;">
+          <% @restaurants.each do |restaurant| %>
+           <li class="boxB">
+             <div><%= restaurant.restaurant_name %></div>
+             <div>Cuisine: <%= restaurant.restaurant_cuisine %></div>
+             <div>Price Rating: <%= '£' * restaurant.restaurant_price %></div>
+             <div>Rating: <%= restaurant.not_yet_reviewed? ? 'None' : restaurant.average_rating %> </div>
+             <div>Address: <%= restaurant.restaurant_address %></div>
+             <div><%= link_to 'Show', restaurant_path(restaurant) %>&nbsp;&nbsp;&nbsp;
+             <% if current_user == restaurant.user %>
+             <%= link_to 'Edit', (current_user == restaurant.user ? edit_restaurant_path(restaurant) : '/restaurants') %>&nbsp;&nbsp;&nbsp;
+             <%= link_to 'Delete', restaurant_path(restaurant), method: :delete %></div>
+             <% end %>
+           </li>
+           <br>
+          <% end%>
+        </ul>
+        <br>
+        <div class="boxC">
+        <%= link_to 'Add restaurant', new_restaurant_path %>
+        </div>
+        <br>
       </div>
-      <br>
     </div>
   </div>
+
 </body>
